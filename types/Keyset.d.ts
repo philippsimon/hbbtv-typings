@@ -23,14 +23,14 @@ declare namespace OIPF {
          * 
          * @see http://www.oipf.tv/docs/OIPF-T1-R1-Specification-Volume-5-Declarative-Application-Environment-v1_2-2012-09-19.PDF#page=60
          */
-        static readonly RED: number;
+        readonly RED: number;
 
         /**
          * Used to identify the `VK_GREEN` key event.
          * 
          * @see http://www.oipf.tv/docs/OIPF-T1-R1-Specification-Volume-5-Declarative-Application-Environment-v1_2-2012-09-19.PDF#page=60
          */
-        static readonly GREEN: number;
+        readonly GREEN: number;
 
         /**
          * Used to identify the `VK_YELLOW` key event.
@@ -38,62 +38,62 @@ declare namespace OIPF {
          * @see http://www.oipf.tv/docs/OIPF-T1-R1-Specification-Volume-5-Declarative-Application-Environment-v1_2-2012-09-19.PDF#page=60
          */
 
-        static readonly YELLOW: number;
+        readonly YELLOW: number;
         /**
          * Used to identify the `VK_BLUE` key event.
          * 
          * @see http://www.oipf.tv/docs/OIPF-T1-R1-Specification-Volume-5-Declarative-Application-Environment-v1_2-2012-09-19.PDF#page=60
          */
-        static readonly BLUE: number;
+        readonly BLUE: number;
 
         /**
          * Used to identify the `VK_UP`, `VK_DOWN`, `VK_LEFT`, `VK_RIGHT`, `VK_ENTER` and `VK_BACK` key events.
          * 
          * @see http://www.oipf.tv/docs/OIPF-T1-R1-Specification-Volume-5-Declarative-Application-Environment-v1_2-2012-09-19.PDF#page=60
          */
-        static readonly NAVIGATION: number;
+        readonly NAVIGATION: number;
 
         /**
          * Used to identify the `VK_PLAY`, `VK_PAUSE`, `VK_STOP`, `VK_NEXT`, `VK_PREV`, `VK_FAST_FWD`, `VK_REWIND`, `VK_PLAY_PAUSE` key events.
          * 
          * @see http://www.oipf.tv/docs/OIPF-T1-R1-Specification-Volume-5-Declarative-Application-Environment-v1_2-2012-09-19.PDF#page=60
          */
-        static readonly VCR: number;
+        readonly VCR: number;
 
         /**
          * Used to identify the `VK_PAGE_UP` and `VK_PAGE_DOWN` key events.
          * 
          * @see http://www.oipf.tv/docs/OIPF-T1-R1-Specification-Volume-5-Declarative-Application-Environment-v1_2-2012-09-19.PDF#page=60
          */
-        static readonly SCROLL: number;
+        readonly SCROLL: number;
 
         /**
          * Used to identify the `VK_INFO` key event.
          * 
          * @see http://www.oipf.tv/docs/OIPF-T1-R1-Specification-Volume-5-Declarative-Application-Environment-v1_2-2012-09-19.PDF#page=60
          */
-        static readonly INFO: number;
+        readonly INFO: number;
 
         /**
          * Used to identify the number events, 0 to 9.
          * 
          * @see http://www.oipf.tv/docs/OIPF-T1-R1-Specification-Volume-5-Declarative-Application-Environment-v1_2-2012-09-19.PDF#page=60
          */
-        static readonly NUMERIC: number;
+        readonly NUMERIC: number;
 
         /**
          * Used to identify all alphabetic events.
          * 
          * @see http://www.oipf.tv/docs/OIPF-T1-R1-Specification-Volume-5-Declarative-Application-Environment-v1_2-2012-09-19.PDF#page=60
          */
-        static readonly ALPHA: number;
+        readonly ALPHA: number;
 
         /**
          * Used to indicate key events not included in one of the other constants in this class.
          * 
          * @see http://www.oipf.tv/docs/OIPF-T1-R1-Specification-Volume-5-Declarative-Application-Environment-v1_2-2012-09-19.PDF#page=60
          */
-        static readonly OTHER: number;
+        readonly OTHER: number;
 
         /**
          * The value of the keyset which this DAE application will receive. 
