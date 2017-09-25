@@ -1,5 +1,5 @@
 {
-  "name": "hbbtv-typings",
+  "name": "@types/hbbtv",
   "version": "0.0.1",
   "description": "",
   "main": "index.js",
