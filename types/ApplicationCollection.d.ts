@@ -11,7 +11,7 @@ declare namespace OIPF {
         /**
          * The number of items in the collection.
          */
-        protected length: number;
+        public readonly length: number;
 
         /**
          * Return the item at position `index` in the collection, or `undefined` if no item is present

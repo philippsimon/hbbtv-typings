@@ -16,7 +16,7 @@ declare namespace OIPF {
          * 
          * @see http://www.oipf.tv/docs/OIPF-T1-R1-Specification-Volume-5-Declarative-Application-Environment-v1_2-2012-09-19.PDF#page=56
          */
-        protected visible: boolean;
+        public readonly visible: boolean;
 
         /**
          * true if the application is in the list of currently active applications, false otherwise (as defined in
@@ -24,28 +24,28 @@ declare namespace OIPF {
          * 
          * @see http://www.oipf.tv/docs/OIPF-T1-R1-Specification-Volume-5-Declarative-Application-Environment-v1_2-2012-09-19.PDF#page=56
          */
-        protected active: boolean;
+        public readonly active: boolean;
 
         /**
          * `StringCollection` object containing the names of the permissions granted to this application.
          * 
          * @see http://www.oipf.tv/docs/OIPF-T1-R1-Specification-Volume-5-Declarative-Application-Environment-v1_2-2012-09-19.PDF#page=57
          */
-        protected permissions: OIPF.StringCollection;
+        public readonly permissions: OIPF.StringCollection;
 
         /**
          * `true` if the application receives cross application events before any other application, `false` otherwise.
          * 
          * @see http://www.oipf.tv/docs/OIPF-T1-R1-Specification-Volume-5-Declarative-Application-Environment-v1_2-2012-09-19.PDF#page=57
          */
-        protected isPrimaryReceiver: boolean;    
+        public readonly isPrimaryReceiver: boolean;    
 
         /**
          * A strict subset of the DOM Window object representing the application.
          * 
          * @see http://www.oipf.tv/docs/OIPF-T1-R1-Specification-Volume-5-Declarative-Application-Environment-v1_2-2012-09-19.PDF#page=57
          */
-        protected window: OIPF.Window;
+        public readonly window: OIPF.Window;
 
         /**
          * Access the current application’s private data object.
@@ -55,7 +55,7 @@ declare namespace OIPF {
          * 
          * @see http://www.oipf.tv/docs/OIPF-T1-R1-Specification-Volume-5-Declarative-Application-Environment-v1_2-2012-09-19.PDF#page=57
          */
-        protected privateData: OIPF.ApplicationPrivateData;
+        public readonly privateData: OIPF.ApplicationPrivateData;
 
         onApplicationActivated(): void;
         onApplicationDeactivated(): void;

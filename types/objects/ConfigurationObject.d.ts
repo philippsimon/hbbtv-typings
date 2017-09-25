@@ -10,12 +10,12 @@ declare namespace OIPF {
         /**
          * Accesses the configuration object that sets defaults and shows system settings. 
          */
-        protected configuration: OIPF.Configuration;
+        public readonly configuration: OIPF.Configuration;
         
         /**
          * Accesses the object representing the platform hardware. 
          */
-        protected localSystem: OIPF.LocalSystem;
+        public readonly localSystem: OIPF.LocalSystem;
 
         /**
          * The function that is called when the IP address of a network interface has changed. The specified

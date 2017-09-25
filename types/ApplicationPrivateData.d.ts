@@ -7,7 +7,7 @@ declare namespace OIPF {
         /**
          * The object representing the user input events sent to the DAE application. 
          */
-        protected keyset: OIPF.Keyset;
+        public readonly keyset: OIPF.Keyset;
 
         /**
          * Let application developer query information about the current memory available to the

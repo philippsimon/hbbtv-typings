@@ -23,14 +23,14 @@ declare namespace OIPF {
          * 
          * @see http://www.oipf.tv/docs/OIPF-T1-R1-Specification-Volume-5-Declarative-Application-Environment-v1_2-2012-09-19.PDF#page=60
          */
-        protected static RED: number;
+        static readonly RED: number;
 
         /**
          * Used to identify the `VK_GREEN` key event.
          * 
          * @see http://www.oipf.tv/docs/OIPF-T1-R1-Specification-Volume-5-Declarative-Application-Environment-v1_2-2012-09-19.PDF#page=60
          */
-        protected static GREEN: number;
+        static readonly GREEN: number;
 
         /**
          * Used to identify the `VK_YELLOW` key event.
@@ -38,69 +38,69 @@ declare namespace OIPF {
          * @see http://www.oipf.tv/docs/OIPF-T1-R1-Specification-Volume-5-Declarative-Application-Environment-v1_2-2012-09-19.PDF#page=60
          */
 
-        protected static YELLOW: number;
+        static readonly YELLOW: number;
         /**
          * Used to identify the `VK_BLUE` key event.
          * 
          * @see http://www.oipf.tv/docs/OIPF-T1-R1-Specification-Volume-5-Declarative-Application-Environment-v1_2-2012-09-19.PDF#page=60
          */
-        protected static BLUE: number;
+        static readonly BLUE: number;
 
         /**
          * Used to identify the `VK_UP`, `VK_DOWN`, `VK_LEFT`, `VK_RIGHT`, `VK_ENTER` and `VK_BACK` key events.
          * 
          * @see http://www.oipf.tv/docs/OIPF-T1-R1-Specification-Volume-5-Declarative-Application-Environment-v1_2-2012-09-19.PDF#page=60
          */
-        protected static NAVIGATION: number;
+        static readonly NAVIGATION: number;
 
         /**
          * Used to identify the `VK_PLAY`, `VK_PAUSE`, `VK_STOP`, `VK_NEXT`, `VK_PREV`, `VK_FAST_FWD`, `VK_REWIND`, `VK_PLAY_PAUSE` key events.
          * 
          * @see http://www.oipf.tv/docs/OIPF-T1-R1-Specification-Volume-5-Declarative-Application-Environment-v1_2-2012-09-19.PDF#page=60
          */
-        protected static VCR: number;
+        static readonly VCR: number;
 
         /**
          * Used to identify the `VK_PAGE_UP` and `VK_PAGE_DOWN` key events.
          * 
          * @see http://www.oipf.tv/docs/OIPF-T1-R1-Specification-Volume-5-Declarative-Application-Environment-v1_2-2012-09-19.PDF#page=60
          */
-        protected static SCROLL: number;
+        static readonly SCROLL: number;
 
         /**
          * Used to identify the `VK_INFO` key event.
          * 
          * @see http://www.oipf.tv/docs/OIPF-T1-R1-Specification-Volume-5-Declarative-Application-Environment-v1_2-2012-09-19.PDF#page=60
          */
-        protected static INFO: number;
+        static readonly INFO: number;
 
         /**
          * Used to identify the number events, 0 to 9.
          * 
          * @see http://www.oipf.tv/docs/OIPF-T1-R1-Specification-Volume-5-Declarative-Application-Environment-v1_2-2012-09-19.PDF#page=60
          */
-        protected static NUMERIC: number;
+        static readonly NUMERIC: number;
 
         /**
          * Used to identify all alphabetic events.
          * 
          * @see http://www.oipf.tv/docs/OIPF-T1-R1-Specification-Volume-5-Declarative-Application-Environment-v1_2-2012-09-19.PDF#page=60
          */
-        protected static ALPHA: number;
+        static readonly ALPHA: number;
 
         /**
          * Used to indicate key events not included in one of the other constants in this class.
          * 
          * @see http://www.oipf.tv/docs/OIPF-T1-R1-Specification-Volume-5-Declarative-Application-Environment-v1_2-2012-09-19.PDF#page=60
          */
-        protected static OTHER: number;
+        static readonly OTHER: number;
 
         /**
          * The value of the keyset which this DAE application will receive. 
          * 
          * @see http://www.oipf.tv/docs/OIPF-T1-R1-Specification-Volume-5-Declarative-Application-Environment-v1_2-2012-09-19.PDF#page=60
          */
-        protected value: number;
+        public readonly value: number;
 
         /**
          * If the `OTHER` bit in the `value` property is set then this indicates those key events which are available
@@ -109,7 +109,7 @@ declare namespace OIPF {
          * 
          * @see http://www.oipf.tv/docs/OIPF-T1-R1-Specification-Volume-5-Declarative-Application-Environment-v1_2-2012-09-19.PDF#page=61
          */
-        protected otherKeys: number[];
+        public readonly otherKeys: number[];
         
         /**
          * In combination with `maximumOtherKeys`, this indicates the maximum set of key events which are
@@ -118,7 +118,7 @@ declare namespace OIPF {
          * 
          * @see http://www.oipf.tv/docs/OIPF-T1-R1-Specification-Volume-5-Declarative-Application-Environment-v1_2-2012-09-19.PDF#page=61
          */
-        protected maximumValue: number;
+        public readonly maximumValue: number;
 
         /**
          * If the `OTHER` bit in the `maximumValue` property is set then, in combination with `maximumValue`, this
@@ -129,7 +129,7 @@ declare namespace OIPF {
          * 
          * @see http://www.oipf.tv/docs/OIPF-T1-R1-Specification-Volume-5-Declarative-Application-Environment-v1_2-2012-09-19.PDF#page=61
          */
-        protected maximumOtherKeys: number[];
+        public readonly maximumOtherKeys: number[];
         
         /**
          * Sets the value of the keyset which this DAE application requests to receive. Where
@@ -148,14 +148,14 @@ declare namespace OIPF {
          *                  myKeyset.setValue(0x00000013);
          *                  myKeyset.setValue(myKeyset.INFO | myKeyset.NUMERIC);
          *                  ``` 
-         * @param otherKeys This parameter is optional. If the value parameter has the OTHER
+         * @param otherKeys If the `value` parameter has the `OTHER`
          *                  bit set then it is used to indicate the key events that the application
          *                  wishes to receive which are not represented by constants defined in
          *                  this class.
          * 
          * @see http://www.oipf.tv/docs/OIPF-T1-R1-Specification-Volume-5-Declarative-Application-Environment-v1_2-2012-09-19.PDF#page=61
          */
-        setValue( value: number, otherKeys: number[] ): number;
+        setValue( value: number, otherKeys?: number[] ): number;
     }
 
 }
