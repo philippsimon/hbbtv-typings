@@ -21,6 +21,7 @@
 /// <reference path="./types/ApplicationPrivateData.d.ts" />
 /// <reference path="./types/Channel.d.ts" />
 /// <reference path="./types/ChannelConfig.d.ts" />
+/// <reference path="./types/ChannelList.d.ts" />
 /// <reference path="./types/Configuration.d.ts" />
 /// <reference path="./types/Keyset.d.ts" />
 /// <reference path="./types/LocalSystem.d.ts" />
