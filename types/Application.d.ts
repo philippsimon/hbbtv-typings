@@ -126,7 +126,7 @@ declare namespace OIPF {
          *
          * @see http://www.oipf.tv/docs/OIPF-T1-R1-Specification-Volume-5-Declarative-Application-Environment-v1_2-2012-09-19.PDF#page=58
          */
-        activateInput( gainFocus: boolean ): void;
+        activateInput( gainFocus?: boolean ): void;
 
         /**
          * Remove the application from the active applications list. This has no effect on the
