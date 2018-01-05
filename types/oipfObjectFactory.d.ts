@@ -1,14 +1,15 @@
-/*
+interface Window {
+    oipfObjectFactory: OipfObjectFactory
+}
+
+declare var oipfObjectFactory: OipfObjectFactory;
+
+/**
  * Object factory API
  * This section defines the methods to check and create an instance of the DAE defined embedded objects within JavaScript.
  * The OITF SHALL support a globally accessible object of type “OipfObjectFactory” as a static property "oipfObjectFactory" of the Window interface with the API as defined in this section. The object factory SHALL ensure that the referenced objects are correctly set up. This is an alternative to instantiating embedded objects (or plugins) outside of JavaScript.
  * The factory object can be accessed as a property of the window object (i.e. window.oipfObjectFactory or oipfObjectFactory). 
  */
-
-interface Window {
-    oipfObjectFactory: OipfObjectFactory
-}
-
 declare class OipfObjectFactory {
     /**
      * This method SHALL return `true` if and only if an object of the specified type is supported
