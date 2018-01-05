@@ -23,6 +23,7 @@
 /// <reference path="./types/ChannelConfig.d.ts" />
 /// <reference path="./types/ChannelList.d.ts" />
 /// <reference path="./types/Configuration.d.ts" />
+/// <reference path="./types/KeyEvent.d.ts" />
 /// <reference path="./types/Keyset.d.ts" />
 /// <reference path="./types/LocalSystem.d.ts" />
 /// <reference path="./types/NetworkInterface.d.ts" />
