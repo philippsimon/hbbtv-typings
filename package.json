@@ -1,23 +1,30 @@
 {
   "name": "@types/hbbtv",
-  "version": "0.0.1",
-  "description": "",
-  "main": "index.js",
+  "version": "1.5.0",
+  "description": "Typings for HbbTV 1.5 (TS 102 796 V1.2.1)",
+  "keywords": [
+    "hbbtv",
+    "oipf",
+    "typings",
+    "typescript",
+    "definition",
+    "declaration"
+  ],
+  "author": "philippsimon",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/philippsimon/hbbtv-typings.git"
+  },
+  "bugs": {
+    "url": "https://github.com/philippsimon/hbbtv-typings/issues"
+  },
+  "homepage": "https://github.com/philippsimon/hbbtv-typings#readme",
   "scripts": {
     "test": "npm run build && npm run tslint",
     "tslint": "tslint --project tsconfig.json --config tslint.json --type-check",
     "build": "tsc"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/philippsimon/hbbtv-typings.git"
-  },
-  "author": "",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/philippsimon/hbbtv-typings/issues"
-  },
-  "homepage": "https://github.com/philippsimon/hbbtv-typings#readme",
   "devDependencies": {
     "tslint": "^5.7.0",
     "tslint-microsoft-contrib": "^5.0.1",
