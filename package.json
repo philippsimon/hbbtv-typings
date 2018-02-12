@@ -10,6 +10,7 @@
     "definition",
     "declaration"
   ],
+  "private": false,
   "author": "philippsimon",
   "license": "MIT",
   "repository": {
