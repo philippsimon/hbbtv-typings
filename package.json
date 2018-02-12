@@ -1,6 +1,6 @@
 {
   "name": "@types/hbbtv",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "description": "Typings for HbbTV 1.5 (TS 102 796 V1.2.1)",
   "keywords": [
     "hbbtv",
