@@ -11,3 +11,7 @@ npm install hbbtv-typings
 ```
 
 Add `"./node_modules/hbbtv-typings"` to `"include"` array of `tsconfig.json`.
+
+## Usage
+
+All OIPF objects are available under the global `OIPF` namespace.
