@@ -1,4 +1,4 @@
-# hbbtv-typings
+# hbbtv-typings [![Build Status](https://api.travis-ci.org/philippsimon/hbbtv-typings.svg?branch=HbbTV/1.2.1)](http://travis-ci.org/philippsimon/hbbtv-typings)
 
 Typings for HbbTV 1.5 (TS 102 796 V1.2.1)
 
