@@ -1,5 +1,3 @@
 declare namespace OIPF {
-  export class ChannelList {
-
-  }
+  export type ChannelList = OIPF.Collection<OIPF.Channel>;
 }
