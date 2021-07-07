@@ -1,5 +1,3 @@
 declare namespace OIPF {
-    export class StringCollection {
-
-    }
+    export type StringCollection = OIPF.Collection<string>;
 }
