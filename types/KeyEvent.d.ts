@@ -1,3 +1,6 @@
+interface Window {
+    KeyEvent: KeyEvent & KeyEventConstants;
+}
 /**
  * @see http://www.oipf.tv/docs/oipf-archive/OIPF-T1-R1-Specification-Volume-5-Declarative-Application-Environment-V1_1-2009-10-08.pdf#page=256
  */
@@ -38,9 +41,11 @@ interface KeyEventInit extends EventModifierInit {
   repeat?: boolean;
 }
 
-declare var KeyEvent: {
-  prototype: KeyEvent;
-  new(typeArg: 'keydown' | 'keypress' | 'keyup', eventInitDict?: KeyEventInit): KeyEvent;
+declare class KeyEvent {
+  constructor(typeArg: 'keydown' | 'keypress' | 'keyup', eventInitDict?: KeyEventInit);
+}
+
+declare class KeyEventConstants {
 
   /**
    * @see http://www.oipf.tv/docs/oipf-archive/OIPF-T1-R1-Specification-Volume-5-Declarative-Application-Environment-V1_1-2009-10-08.pdf#page=234
@@ -82,7 +87,6 @@ declare var KeyEvent: {
    * @see http://www.oipf.tv/docs/oipf-archive/OIPF-T1-R1-Specification-Volume-5-Declarative-Application-Environment-V1_1-2009-10-08.pdf#page=234
    */
   readonly VK_9: number;
-
   /**
    * @see http://www.oipf.tv/docs/oipf-archive/OIPF-T1-R1-Specification-Volume-5-Declarative-Application-Environment-V1_1-2009-10-08.pdf#page=234
    */
@@ -198,4 +202,4 @@ declare var KeyEvent: {
    * @see http://www.oipf.tv/docs/oipf-archive/OIPF-T1-R1-Specification-Volume-5-Declarative-Application-Environment-V1_1-2009-10-08.pdf#page=235
    */
   readonly VK_MUTE: number;
-};
+}
