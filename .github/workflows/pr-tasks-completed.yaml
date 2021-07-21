@@ -1,0 +1,12 @@
+name: 'PR Tasks Completed Checker'
+on: 
+  pull_request:
+    types: [edited, opened, synchronize, reopened]
+
+jobs:
+  task-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: venkatsarvesh/pr-tasks-completed-action@2ea30c6d3cd857b7352f73adf04df90cc878ba60
+        with:
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
