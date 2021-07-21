@@ -1,0 +1,43 @@
+name: "Publish Package"
+
+# Trigger when a new release is created
+on:
+  release:
+    types: [created]
+
+env:
+  CACHE_NAME: ci
+
+jobs:
+  package:
+    name: "Package & Push to GitHub Packages"
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14.x]
+    steps:
+      - name: "Setup - Checkout"
+        uses: actions/checkout@v2.3.4
+      
+      - name: "Setup - Use Node.js ${{ matrix.node-version }}"
+        uses: actions/setup-node@v2.1.5
+        with:
+          node-version: ${{ matrix.node-version }}
+          registry-url: 'https://npm.pkg.github.com'
+      
+      - name: "Cache node modules"
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-modules-${{ env.CACHE_NAME }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-modules-${{ env.CACHE_NAME }}-
+      
+      - name: "Install dependencies"
+        id: install_deps
+        run: npm ci
+      
+      - name: "Publish"
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

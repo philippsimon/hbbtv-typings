@@ -1,0 +1,60 @@
+name: "PR CI"
+
+# Trigger when a pull request is created or code is updated as well as when the PR is merged to main
+on:
+  pull_request:
+    types: [opened, synchronize, ready_for_review]
+  push:
+    branches:
+      - main
+
+env:
+  CACHE_NAME: ci
+
+jobs:
+  build_and_test:
+    name: "Build and Test"
+    if: ${{ github.event_name == 'push' || github.event.pull_request.draft == false }}
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node_version: [14.x]
+    steps:
+      - name: "Setup - Checkout"
+        uses: actions/checkout@v2.3.4
+
+      - name: "Setup - Use Node.js ${{ matrix.node_version }}"
+        uses: actions/setup-node@v2.1.5
+        with:
+          node-version: ${{ matrix.node_version }}
+      
+      - name: "Cache node modules"
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-modules-${{ env.CACHE_NAME }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-modules-${{ env.CACHE_NAME }}-
+      
+      - name: "Install dependencies"
+        id: install_deps
+        run: |
+          npm ci
+          [[ $(jq -r '.scripts.postinstall' package.json) != null ]] && POSTINSTALL_BUILT=1 || POSTINSTALL_BUILT=0
+          echo "::set-output name=postinstall_built::$POSTINSTALL_BUILT"
+
+      - name: "Compile"
+        if: ${{ steps.install_deps.outputs.postinstall_built == 0 }}
+        id: build
+        run: npm run build
+
+      - name: "Lint"
+        id: lint
+        run: npm run tslint --if-present
+      
+      # - name: "Test"
+      #   id: test
+      #   run: npm run test --if-present
+      
+      # - name: "Test coverage"
+      #   run: npm run test:coverage --if-present
