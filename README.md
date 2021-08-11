@@ -7,7 +7,7 @@ See https://www.hbbtv.org/resource-library/#specifications
 ## Installation
 
 ```
-npm install hbbtv-typings
+npm install @digital-uk/hbbtv-typings
 ```
 
 Add `"./node_modules/hbbtv-typings"` to `"include"` array of `tsconfig.json`.
