@@ -1,4 +1,6 @@
-# hbbtv-typings [![Build Status](https://api.travis-ci.org/philippsimon/hbbtv-typings.svg?branch=HbbTV/1.2.1)](http://travis-ci.org/philippsimon/hbbtv-typings)
+# hbbtv-typings
+
+Forked by Digital-UK from philippsimon/hbbtv-typings to add missing definitions and update TS version and usage.
 
 Typings for HbbTV 1.5 (TS 102 796 V1.2.1)
 
