@@ -187,6 +187,8 @@ declare namespace OIPF {
      */
     readonly minorChannel: number;
 
+    readonly terminalChannel: number;
+
     /**
      *     For channels of type ID_DVB_SI_DIRECT created through createChannelObject, this property defines
     the delivery system descriptor (tuning parameters) as defined by DVB-SI [EN300468] section 6.2.13. 
