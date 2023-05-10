@@ -566,6 +566,75 @@ declare namespace OIPF {
                 this method SHALL return null.
              */
             createChannelList( bdr: string ): OIPF.ChannelList;
+
+            /**
+             * The function that is called when the playback speed of a channel changes.
+             * If the playback reaches the beginning of the time-shift buffer at rewind playback speed, then the play
+             * state is changed to 2 (‘paused’) and a PlaySpeedChanged event with a speed of 0 is generated. If the
+             * playback reaches the end of the time-shift buffer at fast-forward playback speed, then the play speed is
+             * set to 1.0 and a PlaySpeedChanged event is generated.
+             * @param speed - the playback speed of the media at the time the event was dispatched
+             */
+            onPlaySpeedChanged(speed: number): void;
+
+            /**
+             * The current play speed of the media.
+             */
+            playSpeed: number;
+
+            /**
+             * The function that is called when change occurs in the play position of a channel due to the use of trick
+             * play functions.
+             * @param position - the playback position of the media at the time the event was dispatched, measured from
+             * the start of the timeshift buffer. If the value of the currentTimeShiftMode property is 1, this is
+             * measured in milliseconds from the start of the timeshift buffer. If the value of the currentTimeShiftMode
+             * property is 2, this is measured in milliseconds from the start of the media item. If the play position
+             * cannot be determined, this argument takes the value undefined.
+             */
+            onPlayPositionChanged(position: number): void;
+
+            /**
+             * The property holds the current play position in milliseconds of the media referenced by the data
+             * property. The property value SHALL be based on the value retrieved using the RTSP GET_PARAMETERS method
+             * and parameter “position” (refer to [OIPF_PROT2] section 7.1.1.2) adjusted for played duration and used
+             * scale. If information is not available the value SHALL be undefined. Note this may happen at the
+             * beginning of playing a video and GET_PARAMETER has not returned a value.
+             */
+            readonly playPosition: number | undefined;
+
+            /**
+             * Returns the playback position, specified as the positive offset of the live broadcast in seconds, in the
+             * currently rendered (timeshifted) broadcast.
+             * When the currentTimeShiftMode property has the value 1, the value of this property is undefined
+             */
+            readonly playbackOffset: number | undefined;
+
+            /**
+             * Returns the maximum playback offset, in seconds of the live broadcast, which is supported for the
+             * currently rendered (timeshifted) broadcast. If the maximum offset is unknown, the value of this property
+             * SHALL be undefined.
+             * When the currentTimeShiftMode property has the value 1, the value of this property is undefined.
+             */
+            readonly maxOffset: number | undefined;
+
+            /**
+             * The time shift mode indicates the mode of operation for support of timeshift playback in the
+             * video/broadcast object. Valid values are:
+             * 0 - Timeshift is turned off
+             * 1 - Timeshift shall use “local resource”.
+             * 2 - Timeshift shall use “network resources”.
+             * 3 - Timeshift shall first use “local resource” when available and fallback to “network resources”.
+             */
+            readonly timeShiftMode: number;
+
+            /**
+             * When timeshift is in operation the property indicates which resources are currently being used.
+             * Valid values are:
+             * 0 - No timeshift.
+             * 1 - Timeshift using “local resource”.
+             * 2 - Timeshift using “network resources”.
+             */
+            readonly currentTimeShiftMode: number;
         }
 
-    }
+}

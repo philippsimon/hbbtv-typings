@@ -15,5 +15,6 @@ declare namespace OIPF {
         readonly IMI: string;
         readonly parentalRatings: Collection<ParentalRating>;
         readonly groupCRIDs: Collection<string>;
+        getSIDescriptors(): Collection<string>;
     }
 }
