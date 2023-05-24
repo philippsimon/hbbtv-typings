@@ -8,53 +8,51 @@ on:
     branches:
       - main
 
-env:
-  CACHE_NAME: ci
-
 jobs:
   build_and_test:
     name: "Build and Test"
     if: ${{ github.event_name == 'push' || github.event.pull_request.draft == false }}
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node_version: [14.x]
     steps:
       - name: "Setup - Checkout"
-        uses: actions/checkout@v2.3.4
+        uses: actions/checkout@v3
 
-      - name: "Setup - Use Node.js ${{ matrix.node_version }}"
-        uses: actions/setup-node@v2.1.5
+      - name: "Check for .nvmrc"
+        run: |
+          if [[ ! -f .nvmrc ]]; then
+            echo "14" > .nvmrc
+          fi
+
+      - name: "Setup - Use Node.js (from .nvmrc)"
+        uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node_version }}
-      
-      - name: "Cache node modules"
-        uses: actions/cache@v2
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-modules-${{ env.CACHE_NAME }}-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-modules-${{ env.CACHE_NAME }}-
-      
+          node-version-file: '.nvmrc'
+          cache: 'npm'
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@digital-uk'
+          always-auth: true
+
+      # Skip post-install scripts here, as a malicious
+      # script could steal NODE_AUTH_TOKEN.
       - name: "Install dependencies"
         id: install_deps
-        run: |
-          npm ci
-          [[ $(jq -r '.scripts.postinstall' package.json) != null ]] && POSTINSTALL_BUILT=1 || POSTINSTALL_BUILT=0
-          echo "::set-output name=postinstall_built::$POSTINSTALL_BUILT"
+        run: npm ci --ignore-scripts
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.ORG_GITHUB_ACTIONS_TOKEN }}
+
+      # `npm rebuild` will run all those post-install scripts for us.
+      - name: "Setup dependencies"
+        id: setup_deps
+        run: npm rebuild && npm run prepare --if-present
 
       - name: "Compile"
-        if: ${{ steps.install_deps.outputs.postinstall_built == 0 }}
         id: build
         run: npm run build
 
       - name: "Lint"
         id: lint
-        run: npm run tslint --if-present
-      
-      # - name: "Test"
-      #   id: test
-      #   run: npm run test --if-present
-      
-      # - name: "Test coverage"
-      #   run: npm run test:coverage --if-present
+        run: |
+          npm run tslint --if-present | tee -a tslint-output.md
+          echo "### Lint Output" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          cat tslint-output.md >> $GITHUB_STEP_SUMMARY
