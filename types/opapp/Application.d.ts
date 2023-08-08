@@ -58,25 +58,27 @@ declare namespace OpApp {
 
     export class Application {
 
-        /** Properties **/
+        /* Properties */
 
         /**
-         * When read by an operator application, this property shall return a String identifying which state the application is in. This shall be encoded as follows -foreground, background, transient, overlaid-foreground or overlaid-transient.
+         * When read by an operator application, this property shall return a String identifying which state the
+         * application is in. This shall be encoded as follows -foreground, background, transient, overlaid-foreground
+         * or overlaid-transient.
          * If read by a regular HbbTV® application, undefined shall be returned.
          */
         readonly opAppState: OpAppState | undefined;
 
         readonly privateData: OIPF.ApplicationPrivateData;
 
-        /** Events **/
+        /* Events */
 
         /**
          * The function that shall be called immediately prior to the terminal moving the operator application to a new
          * state. The specified function is called with the arguments, newState, which identifies the new state and
          * oldState, which identifies the old state. The newState and oldState arguments shall be encoded as defined for
          * the opAppState property.
-         * @param oldState
-         * @param newState
+         * @param oldState - the previous application state
+         * @param newState - the new application state
          */
         onOperatorApplicationStateChange(oldState: OpAppState, newState: OpAppState): void;
 
@@ -85,14 +87,14 @@ declare namespace OpApp {
          * state. The specified function is called with the arguments, newState, which identifies the new state and
          * oldState, which identifies the old state. The newState and oldState arguments shall be encoded as defined for
          * the opAppState property.
-         * @param oldState
-         * @param newState
+         * @param oldState - the previous application state
+         * @param newState - the new application state
          */
         onOperatorApplicationStateChangeCompleted(oldState: OpAppState, newState: OpAppState): void;
 
         /**
          * The function that is called when the operator application's update state is changed
-         * @param updateEvent
+         * @param updateEvent - the name of the triggered update event
          */
         onOpAppUpdate(updateEvent: OpAppUpdateEvent): void;
 
@@ -100,22 +102,26 @@ declare namespace OpApp {
          * The function shall be called due to a request made by the user from the terminal. The specified function is
          * called with the argument startupLocation, which identifies the location for the operator application to
          * display.
-         * @param startupLocation
+         * @param startupLocation - indicates the location the OpApp should switch to at startup
          * @param launchLocation - indicates where the context event was triggered from
          */
         onOperatorApplicationContextChange(startupLocation?: OpAppStartupLocation | string, launchLocation?: OpAppLaunchLocation | string): void;
 
-        /** Methods **/
+        /* Methods */
 
         /**
-         * Requests the terminal to move the calling operator application to transient state or requests the terminal to restart the timer started after the previous successful call to this method. The call shall be successful and the request granted if the conditions for a successful call as listed in clause 6.3.3.4 of the present document are met. If the request is granted then:
+         * Requests the terminal to move the calling operator application to transient state or requests the terminal to
+         * restart the timer started after the previous successful call to this method. The call shall be successful and
+         * the request granted if the conditions for a successful call as listed in clause 6.3.3.4 of the present
+         * document are met. If the request is granted then:
          * •    if the operator application is already in the transient or overlaid transient state, then:
          *          -  the terminal shall restart the timer with a duration of 1 minute and
          *          -  the method shall return true
          * •    else
          *          - the terminal shall start a timer with a duration of 1 minute and
          *          - the method shall return true.
-         *          - the Application shall be notified via an event dispatched to the onOperatorApplicationStateChange and onOperatorApplicationStateChangeCompleted functions; and
+         *          - the Application shall be notified via an event dispatched to the onOperatorApplicationStateChange
+         *            and onOperatorApplicationStateChangeCompleted functions; and
          *
          * After the timer expires, the operator application shall be moved to background state again, with the
          * Application being notified via an event dispatched to the onOperatorApplicationStateChange and
@@ -135,10 +141,23 @@ declare namespace OpApp {
         opAppRequestTransient(): boolean;
 
         /**
+         * Requests the terminal to move the calling application to foreground state. The terminal shall only grant the
+         * request if it was received in accordance with the specifications of clause 6.3.3.2 of the present document.
          *
+         * When the request is granted, the Application shall be notified via an event dispatched to the
+         * onOperatorApplicationStateChange and onOperatorApplicationStateChangeCompleted functions and the method shall
+         * return true.
+         *
+         * If the request is not in accordance with the requirements listed in clause 6.3.3.2 of the present document
+         * then the request shall not be granted and the method shall return false.
          */
         opAppRequestForeground(): boolean;
 
+        /**
+         * Requests the terminal to move the calling application to background state. When the request is granted, the
+         * Application shall be notified via an event dispatched to the onOperatorApplicationStateChange and
+         * onOperatorApplicationStateChangeCompleted functions.
+         */
         opAppRequestBackground(): void;
 
         opAppRequestUpdate(immediate: boolean, params?: string[]): void;

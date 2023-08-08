@@ -38,6 +38,6 @@ declare namespace OpApp {
          * `Application` object referred to by appl SHALL have the value `undefined` and calling any methods
          * on that object SHALL fail.
          */
-        onApplicationLoadError( appl: OpApp.Application ): void;
+        onApplicationLoadError(appl: OpApp.Application): void;
     }
 }
