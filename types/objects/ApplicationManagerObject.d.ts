@@ -75,9 +75,5 @@ declare namespace OIPF {
          * on that object SHALL fail.
          */
         onApplicationLoadError( appl: OIPF.Application ): void;
-
-        onLowMemory(): void;
-        onApplicationLoaded(): void;
-        onApplicationUnloaded(): void;
     }
 }

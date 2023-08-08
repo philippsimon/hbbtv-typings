@@ -36,6 +36,13 @@
 /// <reference path="./types/StringCollection.d.ts" />
 /// <reference path="./types/Window.d.ts" />
 /// <reference path="./types/oipfObjectFactory.d.ts" />
+/// <reference path="./types/opapp/Application.d.ts" />
+/// <reference path="./types/opapp/BroadcastSupervisor.d.ts" />
+/// <reference path="./types/opapp/ChannelConfig.d.ts" />
+/// <reference path="./types/opapp/Configuration.d.ts" />
+/// <reference path="./types/opapp/LocalSystem.d.ts" />
+/// <reference path="./types/opapp/objects/ApplicationManagerObject.d.ts" />
+/// <reference path="./types/opapp/objects/VideoBroadcastObject.d.ts" />
 
 /**
  * @see http://www.etsi.org/deliver/etsi_ts%5C102700_102799%5C102796%5C01.02.01_60%5Cts_102796v010201p.pdf
@@ -52,3 +59,5 @@
  *    NOTE: Available at http://www.oipf.tv/specifications.
  */
 declare namespace OIPF {}
+
+declare namespace OpApp {}
