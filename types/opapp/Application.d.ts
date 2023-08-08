@@ -56,7 +56,7 @@ declare namespace OpApp {
         RESTART = "restart",
     }
 
-    export class Application {
+    export class Application extends OIPF.Application {
 
         /* Properties */
 

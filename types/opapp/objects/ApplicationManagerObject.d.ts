@@ -8,7 +8,7 @@ declare namespace OpApp {
      If one of the methods on the application/oipfApplicationManager is called by a webpage that is not a
      privileged DAE application, the OITF SHALL throw an error as defined in section 10.1.1.
      */
-    export interface ApplicationManagerObject extends HTMLObjectElement {
+    export interface ApplicationManagerObject extends OIPF.ApplicationManagerObject {
         type: 'application/oipfApplicationManager';
 
         /**
