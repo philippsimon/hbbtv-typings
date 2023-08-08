@@ -52,14 +52,14 @@ declare namespace OIPF {
          *
          * @param document The document for which the Application object should be obtained.
          */
-        getOwnerApplication( document: Document ): OIPF.Application | null;
+        getOwnerApplication(document: Document): OIPF.Application | null;
 
         /**
          * Get the applications that are children of the specified application.
          *
          * @param application The application whose children should be returned.
          */
-        getChildApplications( application: OIPF.Application ): OIPF.ApplicationCollection;
+        getChildApplications(application: OIPF.Application): OIPF.ApplicationCollection;
 
         /**
          * Provide a hint to the execution environment that a garbage collection cycle should be
@@ -74,6 +74,6 @@ declare namespace OIPF {
          * `Application` object referred to by appl SHALL have the value `undefined` and calling any methods
          * on that object SHALL fail.
          */
-        onApplicationLoadError( appl: OIPF.Application ): void;
+        onApplicationLoadError(appl: OIPF.Application): void;
     }
 }

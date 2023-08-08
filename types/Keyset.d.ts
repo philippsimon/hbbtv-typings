@@ -100,7 +100,7 @@ declare namespace OIPF {
          *
          * @see http://www.oipf.tv/docs/OIPF-T1-R1-Specification-Volume-5-Declarative-Application-Environment-v1_2-2012-09-19.PDF#page=60
          */
-        public readonly value: number;
+        readonly value: number;
 
         /**
          * If the `OTHER` bit in the `value` property is set then this indicates those key events which are available
@@ -109,7 +109,7 @@ declare namespace OIPF {
          *
          * @see http://www.oipf.tv/docs/OIPF-T1-R1-Specification-Volume-5-Declarative-Application-Environment-v1_2-2012-09-19.PDF#page=61
          */
-        public readonly otherKeys: number[];
+        readonly otherKeys: number[];
 
         /**
          * In combination with `maximumOtherKeys`, this indicates the maximum set of key events which are
@@ -118,7 +118,7 @@ declare namespace OIPF {
          *
          * @see http://www.oipf.tv/docs/OIPF-T1-R1-Specification-Volume-5-Declarative-Application-Environment-v1_2-2012-09-19.PDF#page=61
          */
-        public readonly maximumValue: number;
+        readonly maximumValue: number;
 
         /**
          * If the `OTHER` bit in the `maximumValue` property is set then, in combination with `maximumValue`, this
@@ -129,12 +129,12 @@ declare namespace OIPF {
          *
          * @see http://www.oipf.tv/docs/OIPF-T1-R1-Specification-Volume-5-Declarative-Application-Environment-v1_2-2012-09-19.PDF#page=61
          */
-        public readonly maximumOtherKeys: number[];
+        readonly maximumOtherKeys: number[];
 
         /**
          * This is not strictly spec compliant but is defined by certain manufacturers whose devices offer pointer support.
          */
-        public supportsPointer: boolean;
+        supportsPointer: boolean;
 
         /**
          * Sets the value of the keyset which this DAE application requests to receive. Where
@@ -160,7 +160,7 @@ declare namespace OIPF {
          *
          * @see http://www.oipf.tv/docs/OIPF-T1-R1-Specification-Volume-5-Declarative-Application-Environment-v1_2-2012-09-19.PDF#page=61
          */
-        setValue( value: number, otherKeys?: number[] ): number;
+        setValue(value: number, otherKeys?: number[]): number;
     }
 
 }

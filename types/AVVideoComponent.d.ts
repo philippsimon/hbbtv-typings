@@ -7,6 +7,6 @@ declare namespace OIPF {
        *
        * @see http://www.oipf.tv/docs/OIPF-T1-R1-Specification-Volume-5-Declarative-Application-Environment-v1_2-2012-09-19.PDF#page=210
        */
-      public readonly aspectRatio: number;
+      readonly aspectRatio: number;
     }
   }

@@ -71,7 +71,7 @@ declare namespace OIPF {
 
             @see http://www.oipf.tv/docs/OIPF-T1-R1-Specification-Volume-5-Declarative-Application-Environment-v1_2-2012-09-19.PDF#page=150
              */
-            onChannelChangeError( channel: OIPF.Channel, errorState: number ): void;
+            onChannelChangeError(channel: OIPF.Channel, errorState: number): void;
 
             /**
              * The current play state of the video/broadcast object. Valid values are:
@@ -130,7 +130,7 @@ declare namespace OIPF {
 
             @see http://www.oipf.tv/docs/OIPF-T1-R1-Specification-Volume-5-Declarative-Application-Environment-v1_2-2012-09-19.PDF#page=152
              */
-            onPlayStateChange( state: number, error: number ): void;
+            onPlayStateChange(state: number, error: number): void;
 
             /**
              * The function that is called when a request to switch a tuner to another channel has successfully
@@ -142,7 +142,7 @@ declare namespace OIPF {
 
               @see http://www.oipf.tv/docs/OIPF-T1-R1-Specification-Volume-5-Declarative-Application-Environment-v1_2-2012-09-19.PDF#page=152
              */
-            onChannelChangeSucceeded: ( channel: OIPF.Channel ) => void;
+            onChannelChangeSucceeded: (channel: OIPF.Channel) => void;
 
             /**
              * The function that is called when the value of fullScreen changes. The default value is null.
@@ -241,7 +241,7 @@ declare namespace OIPF {
 
             @see http://www.oipf.tv/docs/OIPF-T1-R1-Specification-Volume-5-Declarative-Application-Environment-v1_2-2012-09-19.PDF#page=153
              */
-            createChannelObject( idType: number, dsd: string, sid: number ): OIPF.Channel;
+            createChannelObject(idType: number, dsd: string, sid: number): OIPF.Channel;
 
             /**
              * Creates a Channel object of the specified idType. The Channel object can subsequently
@@ -285,8 +285,8 @@ declare namespace OIPF {
 
             @see http://www.oipf.tv/docs/OIPF-T1-R1-Specification-Volume-5-Declarative-Application-Environment-v1_2-2012-09-19.PDF#page=154
              */
-            createChannelObject( idType: number, onid?: number, tsid?: number,
-                sid?: number, sourceID?: number, ipBroadcastID?: string ): OIPF.Channel;
+            createChannelObject(idType: number, onid?: number, tsid?: number,
+                sid?: number, sourceID?: number, ipBroadcastID?: string): OIPF.Channel;
 
             /**
              *             Requests the OITF to switch a (logical or physical) tuner to the channel specified by
@@ -404,7 +404,7 @@ declare namespace OIPF {
 
                 @see http://www.oipf.tv/docs/OIPF-T1-R1-Specification-Volume-5-Declarative-Application-Environment-v1_2-2012-09-19.PDF#page=155
              */
-            setChannel( channel: OIPF.Channel, trickplay?: boolean, contentAccessDescriptorURL?: string ): void;
+            setChannel(channel: OIPF.Channel, trickplay?: boolean, contentAccessDescriptorURL?: string): void;
 
             /**
              * Requests the OITF to switch the tuner that is currently in use by the video/broadcast
@@ -486,7 +486,7 @@ declare namespace OIPF {
 
             @see http://www.oipf.tv/docs/OIPF-T1-R1-Specification-Volume-5-Declarative-Application-Environment-v1_2-2012-09-19.PDF#page=158
              */
-            setFullScreen( fullscreen: boolean ): void;
+            setFullScreen(fullscreen: boolean): void;
 
             /**
              * Adjusts the volume of the currently playing media to the volume as indicated by volume.
@@ -507,7 +507,7 @@ declare namespace OIPF {
 
             @see http://www.oipf.tv/docs/OIPF-T1-R1-Specification-Volume-5-Declarative-Application-Environment-v1_2-2012-09-19.PDF#page=158
              */
-            setVolume( volume: number ): boolean;
+            setVolume(volume: number): boolean;
 
             /**
              * Returns the actual volume level set; for systems that do not support individual volume
@@ -565,7 +565,7 @@ declare namespace OIPF {
                 specified in [META]. If the string is not a valid Broadcast Discovery Record,
                 this method SHALL return null.
              */
-            createChannelList( bdr: string ): OIPF.ChannelList;
+            createChannelList(bdr: string): OIPF.ChannelList;
 
             /**
              * The function that is called when the playback speed of a channel changes.

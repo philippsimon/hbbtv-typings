@@ -5,24 +5,24 @@ declare namespace OIPF {
      */
     export class ApplicationPrivateData {
         /**
-         * The object representing the user input events sent to the DAE application. 
+         * The object representing the user input events sent to the DAE application.
          */
-        public readonly keyset: OIPF.Keyset;
+        readonly keyset: OIPF.Keyset;
 
         /**
          * Let application developer query information about the current memory available to the
          * application. This is used to help during application development to find application
          * memory leaks and possibly allow an application to make decisions related to its
          * caching strategy (e.g. for images).
-         * 
+         *
          * Returns the available memory to the application or -1 if the information is not available.
          * For example:
          * ```
          * debug("[APP] free mem = " +
-         * appman.getOwnerApplication(window.document).privateData.getFreeMem() + "\n"); 
+         * appman.getOwnerApplication(window.document).privateData.getFreeMem() + "\n");
          * ```
          */
-        getFreeMem(): number;            
+        getFreeMem(): number;
     }
 
 }
