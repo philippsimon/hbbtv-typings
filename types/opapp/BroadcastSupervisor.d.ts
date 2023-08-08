@@ -41,6 +41,28 @@ declare namespace OpApp {
         POSITION_END = 2
     }
 
+    export enum BroadcastSupervisorEvents {
+        ChannelChangeSucceeded = "ChannelChangeSucceeded",
+        ChannelChangeError = "ChannelChangeError",
+        PlayStateChange = "PlayStateChange",
+        PlaySpeedChanged = "PlaySpeedChanged",
+        PlayPositionChanged = "PlayPositionChanged",
+        ProgrammesChanged = "ProgrammesChanged",
+        ParentalRatingChange = "ParentalRatingChange",
+        ParentalRatingError = "ParentalRatingError",
+        SelectedComponentChanged = "SelectedComponentChanged"
+    }
+
+    type ChannelChangeSucceededEventListener = (channel: OIPF.Channel) => void;
+    type ChannelChangeErrorEventListener = (channel: OIPF.Channel, error: ChannelChangeErrorState) => void;
+    type PlayStateChangeEventListener = (state: playState, error: ChannelChangeErrorState) => void;
+    type PlaySpeedChangedEventListener = (speed: number) => void;
+    type PlayPositionChangedEventListener = (position: number) => void;
+    type ParentalRatingChange = (contentId: string, ratings: OIPF.ParentalRating[], DRMSystemId: string, blocked: boolean) => void;
+    type ParentalRatingError = (contentId: string, ratings: OIPF.ParentalRating[], DRMSystemId: string) => void;
+    type ProgrammesChangedEventListener = () => void;
+    type SelectedComponentChanged = (componentType: number) => void;
+
     /**
      * BroadcastSupervisor
      *
@@ -71,6 +93,29 @@ declare namespace OpApp {
         onSelectedComponentChanged(componentType: number): void;
 
         /* Methods */
+        addEventListener(eventName: BroadcastSupervisorEvents,
+                         listener: ChannelChangeSucceededEventListener
+                                    | ChannelChangeErrorEventListener
+                                    | PlayStateChangeEventListener
+                                    | PlaySpeedChangedEventListener
+                                    | PlayPositionChangedEventListener
+                                    | ParentalRatingChange
+                                    | ParentalRatingError
+                                    | ProgrammesChangedEventListener
+                                    | SelectedComponentChanged
+                        ): void;
+
+        removeEventListener(eventName: BroadcastSupervisorEvents,
+                            listener: ChannelChangeSucceededEventListener
+                                | ChannelChangeErrorEventListener
+                                | PlayStateChangeEventListener
+                                | PlaySpeedChangedEventListener
+                                | PlayPositionChangedEventListener
+                                | ParentalRatingChange
+                                | ParentalRatingError
+                                | ProgrammesChangedEventListener
+                                | SelectedComponentChanged): void;
+
         getChannelConfig(): Pick<VideoBroadcastObject, "getChannelConfig">;
 
         createChannelObject(
@@ -91,6 +136,7 @@ declare namespace OpApp {
         setChannel(
             channel: OIPF.Channel,
             trickplay?: boolean,
+            // tslint:disable-next-line:unified-signatures
             contentAccessDescriptorURL?: string,
         ): Pick<VideoBroadcastObject, "setChannel">;
 
@@ -99,6 +145,7 @@ declare namespace OpApp {
             trickplay?: boolean,
             contentAccessDescriptorURL?: string,
             quiet?: number,
+            // tslint:disable-next-line:unified-signatures
             blockAV?: boolean,
         ): Pick<VideoBroadcastObject, "setChannel">;
 
