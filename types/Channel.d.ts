@@ -45,7 +45,7 @@ declare namespace OIPF {
     its delivery system descriptor as defined by DVB-SI [EN300468] section
     6.2.13.
      */
-    readonly ID_DVB_SI_DIRECT: number; 
+    readonly ID_DVB_SI_DIRECT: number;
 
     /**
      * Used in the idType property to indicate a DVB-C or DVB-C2 channel
@@ -73,7 +73,7 @@ declare namespace OIPF {
 
     /**
      * Used in the idType property to indicate an ISDB-S channel identified by
-    the three properties: ‘onid’, ‘tsid’, ‘sid’. 
+    the three properties: ‘onid’, ‘tsid’, ‘sid’.
      */
     readonly ID_ISDB_S: number;
 
@@ -101,7 +101,7 @@ declare namespace OIPF {
     /**
      * Used in the idType property to indicate an IP broadcast channel identified
     by a DVB MCAST URI (e.g. i.e. dvb-mcast://), as value for property
-    ‘ipBroadcastID’. 
+    ‘ipBroadcastID’.
      */
     readonly ID_IPTV_URI: number;
 
@@ -164,7 +164,7 @@ declare namespace OIPF {
     readonly freq: number;
 
     /**
-     * For analogue channels, the VPS/PDC confirmed network identifier. 
+     * For analogue channels, the VPS/PDC confirmed network identifier.
      */
     readonly cni: number;
 
@@ -191,7 +191,7 @@ declare namespace OIPF {
 
     /**
      *     For channels of type ID_DVB_SI_DIRECT created through createChannelObject, this property defines
-    the delivery system descriptor (tuning parameters) as defined by DVB-SI [EN300468] section 6.2.13. 
+    the delivery system descriptor (tuning parameters) as defined by DVB-SI [EN300468] section 6.2.13.
     The dsd property provides a string whose characters shall be restricted to the ISO Latin-1 character set.
     Each character in the dsd represents a byte of a delivery system descriptor as defined by DVB-SI
     [EN300468] section 6.2.13, such that a byte at position "i" in the delivery system descriptor is equal the
@@ -219,7 +219,7 @@ declare namespace OIPF {
      *     Flag indicating whether the current state of the parental control system prevents the channel from being
     viewed (e.g. a correct parental control pin has not been entered).
     Note that this property supports the option of client-based management of parental control without
-    excluding server-side implementation of parental control. 
+    excluding server-side implementation of parental control.
      */
     readonly locked: boolean;
 
@@ -240,7 +240,7 @@ declare namespace OIPF {
 
     /**
      *     If the channel has id Type ID_IPTV_SDS, this element denotes the maximum bitrate associated to the
-    channel. 
+    channel.
      */
     readonly channelMaxBitRate: number;
 
