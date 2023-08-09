@@ -2,13 +2,13 @@ declare namespace OIPF {
 
     import BroadcastSupervisor = OpApp.BroadcastSupervisor;
 
-    export enum PINControlStatus {
+    export const enum PINControlStatus {
         CORRECT_PIN = 0,
         INCORRECT_PIN = 1,
         LOCKED = 2,
     }
 
-    export enum VerifyParentalConrolStatus {
+    export const enum VerifyParentalConrolStatus {
         APPROVED = "approved",
         NOT_APPROVED = "notApproved",
     }

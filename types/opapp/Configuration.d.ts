@@ -1,6 +1,6 @@
 declare namespace OpApp {
 
-    export enum REPLACE_UI_ELEMENTS {
+    export const enum REPLACE_UI_ELEMENTS {
         UI_TVMODE = 0,
         UI_VOLUME = 1,
         UI_PARENTALCONTROL = 2,

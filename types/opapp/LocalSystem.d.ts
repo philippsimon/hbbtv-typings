@@ -1,5 +1,5 @@
 declare namespace OpApp {
-    export enum PowerState {
+    export const enum PowerState {
         OFF = 0,
         ON = 1,
         PASSIVE_STANDBY = 2,

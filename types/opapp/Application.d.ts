@@ -1,6 +1,6 @@
 declare namespace OpApp {
 
-    export enum OpAppState {
+    export const enum OpAppState {
         FOREGROUND = "foreground",
         BACKGROUND = "background",
         TRANSIENT = "transient",
@@ -8,7 +8,7 @@ declare namespace OpApp {
         OVERLAID_TRANSIENT = "overlaid-transient",
     }
 
-    export enum OpAppUpdateStatus {
+    export const enum OpAppUpdateStatus {
         DISCOVERY_IN_PROGRSS = -3,
         NO_UPDATE_IN_PROGRESS = -2,
         NEW_SOFTWARE_AVAILABLE_FOR_DOWNLOAD = -1,
@@ -16,7 +16,7 @@ declare namespace OpApp {
 
     }
 
-    export enum OpAppUpdateEvent {
+    export const enum OpAppUpdateEvent {
         SOFTWARE_DISCOVERING = "SOFTWARE_DISCOVERING",
         SOFTWARE_DISCOVERY_FAILED = "SOFTWARE_DISCOVERY_FAILED",
         SOFTWARE_CURRENT = "SOFTWARE_CURRENT",
@@ -30,7 +30,7 @@ declare namespace OpApp {
     /**
      * See Table 11 of OpApp Spec
      */
-    export enum OpAppStartupLocation {
+    export const enum OpAppStartupLocation {
         OPAPP_EPG = "opapp-epg",
         OPAPP_PVR = "opapp-pvr",
         OPAPP_SETTINGS = "opapp-setings",
@@ -47,7 +47,7 @@ declare namespace OpApp {
     /**
      * See Table 10 of OpApp Spec
      */
-    export enum OpAppLaunchLocation {
+    export const enum OpAppLaunchLocation {
         INSTALL = "install",
         SETTINGS = "settings",
         SOURCE = "source",
