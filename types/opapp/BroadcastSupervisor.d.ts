@@ -3,7 +3,7 @@ import VideoBroadcastObject = OIPF.VideoBroadcastObject;
 declare namespace OpApp {
 
     /* enums */
-    export enum playState  {
+    export const enum playState  {
         UNREALIZED = 0,
         CONNECTING = 1,
         PRESENTING = 2,
@@ -11,7 +11,7 @@ declare namespace OpApp {
 
     export type playStateError = ChannelChangeErrorState;
 
-    export enum ChannelChangeErrorState {
+    export const enum ChannelChangeErrorState {
         CHANNEL_NOT_SUPPORTED = 0,
         CANNOT_TUNE = 1,
         TUNER_LOCKED = 2,
@@ -29,19 +29,19 @@ declare namespace OpApp {
         UNIDENTIFIED_ERROR = 100,
     }
 
-    export enum AVComponentType {
+    export const enum AVComponentType {
         COMPONENT_TYPE_VIDEO = 0,
         COMPONENT_TYPE_AUDIO = 1,
         COMPONENT_TYPE_SUBTITLE = 2,
     }
 
-    export enum SEEK_REFERENCE_POINT {
+    export const enum SEEK_REFERENCE_POINT {
         POSITION_CURRENT = 0,
         POSITION_START = 1,
         POSITION_END = 2
     }
 
-    export enum BroadcastSupervisorEvents {
+    export const enum BroadcastSupervisorEvents {
         ChannelChangeSucceeded = "ChannelChangeSucceeded",
         ChannelChangeError = "ChannelChangeError",
         PlayStateChange = "PlayStateChange",
