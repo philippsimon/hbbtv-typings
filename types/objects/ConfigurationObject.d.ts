@@ -10,7 +10,7 @@ declare namespace OIPF {
         /**
          * Accesses the configuration object that sets defaults and shows system settings.
          */
-        readonly configuration: OIPF.Configuration | OpApp.Configuration;
+        readonly configuration: OIPF.Configuration;
 
         /**
          * Accesses the object representing the platform hardware.
