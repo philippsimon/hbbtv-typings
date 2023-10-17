@@ -72,14 +72,14 @@ declare namespace OpApp {
         /* Properties */
         readonly playState: playState;
         readonly playStateError: playStateError;
-        readonly playSpeed: Pick<OpApp.VideoBroadcastObject, "playSpeed">;
-        readonly playPosition: Pick<OpApp.VideoBroadcastObject, "playPosition">;
-        readonly playbackOffset: Pick<OpApp.VideoBroadcastObject, "playbackOffset">;
-        readonly maxOffset: Pick<OpApp.VideoBroadcastObject, "maxOffset">;
-        readonly timeShiftMode: Pick<OpApp.VideoBroadcastObject, "timeShiftMode">;
-        readonly currentTimeShiftMode: Pick<OpApp.VideoBroadcastObject, "currentTimeShiftMode">;
-        readonly programmes: Pick<OpApp.VideoBroadcastObject, "programmes">;
-        readonly currentChannel: Pick<OpApp.VideoBroadcastObject, "currentChannel">;
+        readonly playSpeed: OpApp.VideoBroadcastObject["playSpeed"];
+        readonly playPosition: OpApp.VideoBroadcastObject["playPosition"];
+        readonly playbackOffset: OpApp.VideoBroadcastObject["playbackOffset"];
+        readonly maxOffset: OpApp.VideoBroadcastObject["maxOffset"];
+        readonly timeShiftMode: OpApp.VideoBroadcastObject["timeShiftMode"];
+        readonly currentTimeShiftMode: OpApp.VideoBroadcastObject["currentTimeShiftMode"];
+        readonly programmes: OpApp.VideoBroadcastObject["programmes"];
+        readonly currentChannel: OpApp.VideoBroadcastObject["currentChannel"]; 
 
         /* Events */
         onChannelChangeError(channel: OIPF.Channel, errorState: ChannelChangeErrorState): void;
